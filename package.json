@@ -1,5 +1,6 @@
 {
   "name": "cvlab-frontend",
+  "version": "1.0.0",
   "private": true,
   "type": "module",
   "scripts": {
@@ -13,9 +14,7 @@
     "@pinia/nuxt": "^0.5.5",
     "@nuxtjs/tailwindcss": "^6.12.2",
     "nuxt": "^3.14.0",
-    "pinia": "^2.2.6",
-    "vue": "latest",
-    "vue-router": "latest"
+    "pinia": "^2.2.6"
   },
   "devDependencies": {
     "pug": "^3.0.3",
