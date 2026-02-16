@@ -14,7 +14,7 @@ defineEmits<{ (e: 'add'): void }>()
     <slot />
     <button
       type="button"
-      class="mt-2 px-3 py-1.5 text-sm rounded border border-primary text-primary hover:bg-primary hover:text-white"
+      class="mt-2 px-3 py-1.5 text-sm rounded bg-black text-white hover:bg-gray-800"
       @click="$emit('add')"
     >
       {{ addButtonLabel }}

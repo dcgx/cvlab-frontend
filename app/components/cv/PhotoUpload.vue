@@ -46,7 +46,7 @@ function triggerInput() {
     <button
       type="button"
       class="photo-zone w-full border-2 border-dashed rounded-lg p-6 text-center transition-colors"
-      :class="isDragging ? 'border-primary bg-primary/5' : 'border-gray-300 hover:border-primary hover:border-opacity-50'"
+      :class="isDragging ? 'border-black bg-gray-100' : 'border-gray-300 hover:border-black'"
       @click="triggerInput"
       @drop.prevent="onDrop"
       @dragover.prevent="onDragOver"

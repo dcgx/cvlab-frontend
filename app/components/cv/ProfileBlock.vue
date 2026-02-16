@@ -39,7 +39,7 @@ function onImproveAi() {
       </button>
       <button
         type="button"
-        class="px-3 py-1.5 text-sm rounded bg-primary text-white hover:opacity-90"
+        class="px-3 py-1.5 text-sm rounded bg-black text-white hover:bg-gray-800"
         @click="onImproveAi"
       >
         Mejorar con IA

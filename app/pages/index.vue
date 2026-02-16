@@ -2,16 +2,21 @@
 useSeoMeta({ title: 'CVLab - Crear tu CV', description: 'Builder de CV estilo cvmaker' })
 
 const cv = useCvStore()
+
+function inputValue(e: Event): string {
+  return (e.target as HTMLInputElement).value
+}
 </script>
 
 <template>
   <div class="min-h-screen bg-background">
-    <div class="container mx-auto p-4 md:p-8 max-w-3xl">
-      <h1 class="font-heading text-2xl text-primary mb-6">CVLab</h1>
+    <div class="container mx-auto p-4 md:p-8 lg:px-8 max-w-6xl">
+      <h1 class="font-heading text-2xl text-black mb-6">CVLab</h1>
 
       <CvProgressBar :percentage="cv.progressPercentage" />
 
-      <form class="cv-form mt-6 space-y-6">
+      <div class="mt-6 grid grid-cols-1 gap-8 lg:grid-cols-2">
+        <form class="cv-form space-y-6">
         <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
           <div>
             <label for="firstName" class="block text-sm font-medium text-secondary mb-1">Nombre(s)</label>
@@ -20,7 +25,7 @@ const cv = useCvStore()
               type="text"
               class="w-full rounded-lg border border-gray-300 p-2"
               :value="cv.firstName"
-              @input="cv.setFirstName(($event.target as HTMLInputElement).value)"
+              @input="cv.setFirstName(inputValue($event))"
             >
           </div>
           <div>
@@ -30,7 +35,7 @@ const cv = useCvStore()
               type="text"
               class="w-full rounded-lg border border-gray-300 p-2"
               :value="cv.lastName"
-              @input="cv.setLastName(($event.target as HTMLInputElement).value)"
+              @input="cv.setLastName(inputValue($event))"
             >
           </div>
         </div>
@@ -47,7 +52,7 @@ const cv = useCvStore()
             type="email"
             class="w-full rounded-lg border border-gray-300 p-2"
             :value="cv.email"
-            @input="cv.setEmail(($event.target as HTMLInputElement).value)"
+            @input="cv.setEmail(inputValue($event))"
           >
         </div>
 
@@ -58,14 +63,14 @@ const cv = useCvStore()
             type="text"
             class="w-full rounded-lg border border-gray-300 p-2"
             :value="cv.position"
-            @input="cv.setPosition(($event.target as HTMLInputElement).value)"
+            @input="cv.setPosition(inputValue($event))"
           >
         </div>
 
         <div>
           <button
             type="button"
-            class="px-3 py-1.5 text-sm rounded border border-gray-300 hover:bg-gray-100"
+            class="px-3 py-1.5 text-sm rounded bg-black text-white hover:bg-gray-800"
             @click="cv.toggleExtraFields"
           >
             {{ cv.showExtraFields ? 'Ocultar' : 'Mostrar' }} campos adicionales
@@ -138,7 +143,13 @@ const cv = useCvStore()
         </CvRepeatableSection>
 
         <CvSectionLibrary />
-      </form>
+        </form>
+
+        <div class="lg:sticky lg:top-8 lg:self-start">
+          <h2 class="text-sm font-medium text-secondary mb-2">Vista previa (formato Harvard)</h2>
+          <CvPreviewHarvard />
+        </div>
+      </div>
     </div>
   </div>
 </template>
